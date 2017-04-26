@@ -1,0 +1,19 @@
+#project common's Makefile.param file
+#only define all common's symbol, but not attach file's path
+
+INC_DIR := include
+LIB_DIR := lib
+
+APUE_LIBA := libapue.a
+UNP_LIBA := libunp.a
+UNPIPC_LIBA := libunpipc.a
+
+LDDIR :=
+LDLIBS :=
+
+CC := gcc
+
+CFLAGS :=-std=gnu99 -Wall -g -Wno-unused 
+LDFLAGS := 
+
+CLEANFILES := *.o core core.* *.out
