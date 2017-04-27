@@ -43,3 +43,15 @@ sed -i 's/config.h/unpipc-config.h/g' unpipc.h
 cp -rf libapue.a libunp.a libunpipc.a ../lib/
 cp -rf unp-config.h unpipc-config.h  ../include/
 cp -rf apue.h unp.h unpipc.h  ../include/
+
+# clean, after install
+bash clean.sh
+
+# make clean for all lib
+make -C apue.3e/lib/ clean
+make -C unpv13e/lib/ clean
+make -C unpv13e/libfree/ clean
+rm -rf unpv13e/*.a
+rm -rf unpv13e/config.log
+make -C unpv22e/lib/ clean
+rm -rf unpv22e/*.a
