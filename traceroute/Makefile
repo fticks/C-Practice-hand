@@ -1,7 +1,5 @@
 include ../Makefile.param
 
-include ../Makefile.param
-
 ROOT := ..
 PROGS := traceroute
 MODPROGS := main.o sig_alrm.o traceloop.o tv_sub.o send_v4.o recv_v4.o icmpcode_v4.o in_checknum.o

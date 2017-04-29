@@ -42,4 +42,4 @@ sed -i 's/config.h/unpipc-config.h/g' unpipc.h
 # cp to ../include
 cp -rf libapue.a libunp.a libunpipc.a ../lib/
 cp -rf unp-config.h unpipc-config.h  ../include/
-cp -rf apue.h unp.h unpipc.h  ../include/
+cp -rf apue.h unp.h unpipc.h unpthread.h ../include/
