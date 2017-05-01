@@ -4,7 +4,6 @@ ROOT := ..
 CFLAGS += -I$(ROOT)/$(INC_DIR)
 LIBDIR += $(ROOT)/$(LIB_DIR)
 LDLIBS += $(LIBDIR)/$(UNP_LIBA) -lpthread -lrt
-
 LIBS := $(LDLIBS)
 
 PROGS =	client clientrst \
