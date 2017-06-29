@@ -42,6 +42,7 @@ foo_rele(struct foo *fp) /* release a reference to the object */
 {
 	pthread_mutex_lock(&fp->f_lock);
 	if (--fp->f_count == 0) { /* last reference */
+     //in fact that it cant check the f_count == 1 or not, that is OK
 		pthread_mutex_unlock(&fp->f_lock);
 		pthread_mutex_destroy(&fp->f_lock);
 		free(fp);

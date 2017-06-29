@@ -4,7 +4,8 @@
 #include <sys/time.h>
 
 #define NTHR   8				/* number of threads */
-#define NUMNUM 8000000L			/* number of numbers to sort */
+#define NUMNUM 8L			/* number of numbers to sort */
+//#define NUMNUM 8000000L			/* number of numbers to sort */
 #define TNUM   (NUMNUM/NTHR)	/* number to sort per thread */
 
 long nums[NUMNUM];
@@ -42,15 +43,15 @@ complong(const void *arg1, const void *arg2)
 void *
 thr_fn(void *arg)
 {
-	long	idx = (long)arg;
+    long	idx = (long)arg;
 
-	heapsort(&nums[idx], TNUM, sizeof(long), complong);
-	pthread_barrier_wait(&b);
+    heapsort(&nums[idx], TNUM, sizeof(long), complong);
+    pthread_barrier_wait(&b);
 
-	/*
-	 * Go off and perform more work ...
-	 */
-	return((void *)0);
+    /*
+     * Go off and perform more work ...
+     */
+    return((void *)0);
 }
 
 /*
@@ -59,22 +60,22 @@ thr_fn(void *arg)
 void
 merge()
 {
-	long	idx[NTHR];
-	long	i, minidx, sidx, num;
+    long	idx[NTHR];
+    long	i, minidx, sidx, num;
 
-	for (i = 0; i < NTHR; i++)
-		idx[i] = i * TNUM;
-	for (sidx = 0; sidx < NUMNUM; sidx++) {
-		num = LONG_MAX;
-		for (i = 0; i < NTHR; i++) {
-			if ((idx[i] < (i+1)*TNUM) && (nums[idx[i]] < num)) {
-				num = nums[idx[i]];
-				minidx = i;
-			}
-		}
-		snums[sidx] = nums[idx[minidx]];
-		idx[minidx]++;
-	}
+    for (i = 0; i < NTHR; i++)
+        idx[i] = i * TNUM;
+    for (sidx = 0; sidx < NUMNUM; sidx++) {
+        num = LONG_MAX;
+        for (i = 0; i < NTHR; i++) {
+            if ((idx[i] < (i+1)*TNUM) && (nums[idx[i]] < num)) {
+            num = nums[idx[i]];
+            minidx = i;
+            }
+        }
+        snums[sidx] = nums[idx[minidx]];
+        idx[minidx]++;
+    }
 }
 
 int
@@ -105,6 +106,7 @@ main()
 			err_exit(err, "can't create thread");
 	}
 	pthread_barrier_wait(&b);
+        pthread_barrier_destroy(&b);
 	merge();
 	gettimeofday(&end, NULL);
 
