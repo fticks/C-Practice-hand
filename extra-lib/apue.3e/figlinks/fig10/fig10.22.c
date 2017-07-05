@@ -54,3 +54,12 @@ sig_int(int signo)
 {
 	pr_mask("\nin sig_int: ");
 }
+
+/*
+program start: 
+in critical region:  SIGINT
+^C
+in sig_int:  SIGINT SIGUSR1
+after return from sigsuspend:  SIGINT
+program exit: 
+*/

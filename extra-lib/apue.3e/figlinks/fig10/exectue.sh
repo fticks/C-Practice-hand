@@ -2,9 +2,9 @@
 
 make clean
 make
-echo -e "\n"
-./fig10.2
+echo -e
+./fig10.23
 #./ex3.3
-echo -e "\n"
+echo -e
 make clean
 

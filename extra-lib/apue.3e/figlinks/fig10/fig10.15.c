@@ -30,7 +30,8 @@ main(void)
 	 */
 	if (sigprocmask(SIG_SETMASK, &oldmask, NULL) < 0)
 		err_sys("SIG_SETMASK error");
-	printf("SIGQUIT unblocked\n");
+
+        printf("SIGQUIT unblocked\n");
 
 	sleep(5);	/* SIGQUIT here will terminate with core file */
 	exit(0);
@@ -43,3 +44,17 @@ sig_quit(int signo)
 	if (signal(SIGQUIT, SIG_DFL) == SIG_ERR)
 		err_sys("can't reset SIGQUIT");
 }
+
+/*
+^\^\^\^\^\^\^\
+SIGQUIT pending
+caught SIGQUIT
+SIGQUIT unblocked
+^\exectue.sh: line 6: 19549 Quit                    (core dumped) ./fig10.15
+
+^\
+SIGQUIT pending
+caught SIGQUIT
+SIGQUIT unblocked
+^\exectue.sh: line 6: 19585 Quit                    (core dumped) ./fig10.15
+*/

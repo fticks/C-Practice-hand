@@ -5,7 +5,7 @@
 static void						sig_usr1(int);
 static void						sig_alrm(int);
 static sigjmp_buf				jmpbuf;
-static volatile sig_atomic_t	canjump;
+static volatile sig_atomic_t    canjump;
 
 int
 main(void)
@@ -56,3 +56,16 @@ sig_alrm(int signo)
 {
 	pr_mask("in sig_alrm: ");
 }
+
+/*
+h265@H265:fig10$ ./fig10.20 &
+[1] 20247
+h265@H265:fig10$ 
+starting main: 
+starting sig_usr1:  SIGUSR1
+in sig_alrm:  SIGUSR1 SIGALRM
+finishing sig_usr1:  SIGUSR1
+ending main: 
+
+[1]+  Done                    ./fig10.20
+*/

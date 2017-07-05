@@ -47,3 +47,15 @@ main(void)
 
 	exit(0);
 }
+
+/*
+^C
+interrupt
+^C
+interrupt
+^C
+interrupt
+^C
+interrupt
+^\
+*/

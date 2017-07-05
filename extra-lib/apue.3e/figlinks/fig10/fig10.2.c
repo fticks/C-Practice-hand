@@ -1,3 +1,9 @@
+#include <signal.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <errno.h>
+
 #include "apue.h"
 
 static void	sig_usr(int);	/* one handler for both signals */
@@ -23,3 +29,14 @@ sig_usr(int signo)		/* argument is signal number */
 	else
 		err_dump("received signal %d\n", signo);
 }
+
+/*sample run and result
+h265@H265:fig10$ ./fig10.2 &
+[1] 17634
+h265@H265:fig10$ kill -USR1 17634
+received SIGUSR1
+h265@H265:fig10$ kill -USR2 17634
+received SIGUSR2
+h265@H265:fig10$ kill 17634
+[1]+  Terminated              ./fig10.2
+*/
