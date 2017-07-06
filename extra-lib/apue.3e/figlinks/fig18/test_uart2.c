@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <asm/termios.h>
+#include <termios.h>
 
 #include "serial.h"
 
-#define DEV_NAME  "/dev/ttyS1"
+#define DEV_NAME  "/dev/ttyS0"
 
 
 int main (int argc, char *argv[])

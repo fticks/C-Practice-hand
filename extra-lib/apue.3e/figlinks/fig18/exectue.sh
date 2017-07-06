@@ -2,9 +2,11 @@
 
 make clean
 make
-echo -e "\n"
-#./fig3.11
-./ex3.3
-echo -e "\n"
+echo -e 
+#./fig18.22
+#./lserial
+./test_uart1
+#./ex3.3
+echo -e 
 make clean
 

@@ -47,3 +47,9 @@ main(void)
 
 	exit(0);
 }
+
+/*
+0177 = ASCII DELETE,chech with below ip:
+    http://www.ibb.net/~anne/keyboard.html
+
+*/
