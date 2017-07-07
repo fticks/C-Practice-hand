@@ -4,7 +4,7 @@
 #include <fcntl.h>
 #include <termios.h>
 
-#define DEV_NAME  "/dev/ttyS0"
+#define DEV_NAME  "/dev/ttyS1"
 
 
 int main (int argc, char *argv[])
