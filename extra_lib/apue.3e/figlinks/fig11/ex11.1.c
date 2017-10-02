@@ -76,3 +76,17 @@ int main(int argc, char **argv)
   printf("Main completed\n");
   return 0;
 }
+
+/*
+Output:
+Entering testcase
+Create 5 threads
+Thread blocked
+Thread blocked
+Thread blocked
+Thread blocked
+Thread blocked
+Wake up all waiting threads...
+Wait for threads and cleanup
+Main completed
+*/

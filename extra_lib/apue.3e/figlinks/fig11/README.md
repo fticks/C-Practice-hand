@@ -1,0 +1,1 @@
+ex11.2.c：调用pthread_cleanup_push和pthread_cleanup_pop
