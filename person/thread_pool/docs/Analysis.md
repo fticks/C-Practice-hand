@@ -15,46 +15,9 @@
 1. 功能实现
 	具体直接看API头文件即可。
 
-![Alt text](http://g.gravizo.com/g?
-@startuml;
-actor User;
-participant "First Class" as A;
-participant "Second Class" as B;
-participant "Last Class" as C;
-User -> A: DoWork;
-activate A;
-A -> B: Create Request;
-activate B;
-B -> C: DoWork;
-activate C;
-C --> B: WorkDone;
-destroy C;
-B --> A: Request Created;
-deactivate B;
-A --> User: Done;
-deactivate A;
-@enduml)
-
-![Alt text](http://g.gravizo.com/g?
-@startuml;
-Object <|-- ArrayList;
-Object : equals%28%29;
-ArrayList : Object[] elementData;
-ArrayList : size%28%29;
-@enduml
-)
-
-<img src='https://g.gravizo.com/svg?
- digraph G {
-   main -> parse -> execute;
-   main -> init;
-   main -> cleanup;
-   execute -> make_string;
-   execute -> printf
-   init -> make_string;
-   main -> printf;
-   execute -> compare;
- }
-'/>
-
-​
+​```sequence
+Andrew->China: Says Hello
+Note right of China: China thinks\nabout it
+China-->Andrew: How are you?
+Andrew->>China: I am good thanks!
+```
